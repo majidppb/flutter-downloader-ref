@@ -189,7 +189,7 @@ class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
       final link = state.downloads[key]!.link;
       final fileName = event.link.split('/').last;
 
-      if (link == event.link && await File('$directory/$fileName').exists()) {
+      if (link == event.link && await File('${directory.path}/$fileName').exists()) {
         return;
       } else {
         FlutterDownloader.remove(taskId: key);
